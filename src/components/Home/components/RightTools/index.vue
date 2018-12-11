@@ -1,6 +1,6 @@
 <template>
     <div class="right-tools">
-        <div class="item contact-merchant">
+        <div class="item contact-merchant" @click="showAlert">
             <div class="icon">
                 <svg-icon icon-class="home"></svg-icon>
             </div>
@@ -12,20 +12,67 @@
             </div>
             <div class="txt">我的订单</div>
         </div>
-        <div class="item add-alliance">
+        <router-link tag="div" class="item add-alliance" to="createalliance">
             <div class="icon">
                 <svg-icon icon-class="add"></svg-icon>
             </div>
             <div class="txt">创建联盟</div>
-        </div>
+        </router-link>
     </div>
 </template>
 
 <script>
 export default {
-    
+    methods: {
+        showAlert() {
+            this.$createDialog({
+                type: 'alert',
+                title: '温馨提示',
+                confirmBtn: {
+                    text: '我知道了',
+                    active: true
+                }
+            }, createElement => {
+                return [
+                    createElement('div', {
+                        slot: 'content',
+                        class: {
+                            'contact-content-tips': true
+                        }
+                    }, [
+                        createElement('p', {
+                            class: {
+                                'contact-content-tips-from': true
+                            }
+                        }, '本活动由XX联盟 发起'),
+                        createElement('p', {
+                            class: {
+                                'contact-content-tips-mobile': true
+                            }
+                        }, '电话：13904568768'),
+                        createElement('p', {
+                            class: {
+                                'contact-content-tips-address': true
+                            }
+                        }, '地址：龙华区清湖地铁站附近交汇处')
+                    ])
+                ]
+            }).show()
+        }
+    }
 }
 </script>
+
+<style lang="stylus">
+.contact-content-tips
+    padding 15px
+    .contact-content-tips-from
+        color #ff6900
+        font-size 15px
+        margin-bottom 10px
+    .contact-content-tips-mobile, .contact-content-tips-address
+        font-size 14px
+</style>
 
 <style lang="stylus" scoped>
 $blue = #1ac9e9

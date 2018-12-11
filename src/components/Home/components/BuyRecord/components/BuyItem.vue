@@ -4,10 +4,10 @@
             <img class="avatar-img" src="../../../../../assets/imgs/avatar.gif" alt="">
         </div>
         <div class="info">
-            <div class="name">刘老师</div>
+            <div class="name">{{buy.name}}</div>
             <div class="bottom">
-                <div class="mobile">139***256</div>
-                <div class="time">2018-12-26 20:36</div>
+                <div class="mobile">{{buy.mobile}}</div>
+                <div class="time">{{buy.time}}</div>
             </div>
         </div>
     </div>
@@ -15,7 +15,9 @@
 
 <script>
 export default {
-    
+    props: {
+        buy: Object
+    }
 }
 </script>
 

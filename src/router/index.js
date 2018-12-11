@@ -10,6 +10,11 @@ const router = new Router({
 			name: 'home',
 			meta: { title: '首页' },
 			component: () => import('../components/Home')
+		},{
+			path: '/createalliance',
+			name: 'createalliance',
+			meta: { title: '创建联盟' },
+			component: () => import('../components/CreateAlliance')
 		}
 	]
 })

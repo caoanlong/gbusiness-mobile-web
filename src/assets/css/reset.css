@@ -52,4 +52,5 @@ html, body {
 	margin: 0 auto;
 	min-width: 300PX;
 	max-width: 640PX;
+	height: 100%;
 }
