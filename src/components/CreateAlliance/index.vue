@@ -1,19 +1,22 @@
 <template>
     <div class="create-alliance-wrapper">
-        <cube-form :model="model" @validate="validateHandler" @submit="submitHandler">
-            <cube-form-group>
-                <div class="create-alliance-title">营销活动&舍我其谁</div>
-                <div class="create-alliance-desc">需要创建活动请填写以下内容</div>
-            </cube-form-group>
-            <cube-form-group>
-                <cube-form-item :field="fields[0]"></cube-form-item>
-                <cube-form-item :field="fields[1]"></cube-form-item>
-                <cube-form-item :field="fields[2]"></cube-form-item>
-            </cube-form-group>
-            <cube-form-group class="sign-up-btn">
-                <cube-button :primary="true" type="submit">立即报名</cube-button>
-            </cube-form-group>
-        </cube-form>
+        <nav-bar left="back" title="创建联盟"></nav-bar>
+        <div class="create-alliance-form">
+            <cube-form :model="model" @validate="validateHandler" @submit="submitHandler">
+                <div class="create-alliance-bg">
+                    <div class="create-alliance-title">营销活动&舍我其谁</div>
+                    <div class="create-alliance-desc">需要创建活动请填写以下内容</div>
+                </div>
+                <cube-form-group>
+                    <cube-form-item :field="fields[0]"></cube-form-item>
+                    <cube-form-item :field="fields[1]"></cube-form-item>
+                    <cube-form-item :field="fields[2]"></cube-form-item>
+                </cube-form-group>
+                <cube-form-group class="sign-up-btn">
+                    <cube-button :primary="true" type="submit">立即报名</cube-button>
+                </cube-form-group>
+            </cube-form>
+        </div>
     </div>
 </template>
 
@@ -38,6 +41,9 @@ export default {
                     },
                     rules: {
                         required: true
+                    },
+                    messages: {
+                        required: '请输入您的姓名'
                     }
                 },{
                     type: 'input',
@@ -48,6 +54,9 @@ export default {
                     },
                     rules: {
                         required: true
+                    },
+                    messages: {
+                        required: '请输入您的手机'
                     }
                 },{
                     type: 'input',
@@ -58,6 +67,9 @@ export default {
                     },
                     rules: {
                         required: true
+                    },
+                    messages: {
+                        required: '请输入您的所在行业'
                     }
                 }
             ]
@@ -65,7 +77,8 @@ export default {
     },
     methods: {
         submitHandler(e) {
-            console.log('submit')
+            e.preventDefault()
+            console.log('submit', e)
         },
         validateHandler(result) {
             this.validity = result.validity
@@ -79,23 +92,27 @@ export default {
 <style lang="stylus" scoped>
 .create-alliance-wrapper
     height 100%
-    padding 10px
     background-color #efeff4
-    .create-alliance-title
-        font-size 24px
-        height 50px
-        line-height 50px
-        color #666
-        font-weight bold
-        text-align center
-        margin-top 50px
-    .create-alliance-desc
-        font-size 16px
-        height 50px
-        line-height 50px
-        color #999
-        text-align center
-        margin-bottom 50px
-    .sign-up-btn
+    padding-top 46px
+    .create-alliance-form
         padding 10px
+        .create-alliance-bg
+            padding-top 50px
+            padding-bottom 50px
+            background-image -webkit-linear-gradient(45deg, #9018bd, #511acc)
+            .create-alliance-title
+                font-size 24px
+                height 50px
+                line-height 50px
+                color #fff
+                font-weight bold
+                text-align center
+            .create-alliance-desc
+                font-size 16px
+                height 50px
+                line-height 50px
+                color #fff
+                text-align center
+        .sign-up-btn
+            padding 10px
 </style>

@@ -1,12 +1,16 @@
 <template>
-    <div class="wrapper">
+    <div class="wrapper" @click="createalliance">
         我也要创建活动
     </div>
 </template>
 
 <script>
 export default {
-    
+    methods: {
+        createalliance() {
+            this.$router.push({name: 'createalliance'})
+        }
+    }
 }
 </script>
 

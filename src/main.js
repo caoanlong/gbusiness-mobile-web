@@ -11,6 +11,7 @@ import './assets/icons'
 
 
 import TitlePannel from './components/Common/TitlePannel'
+import NavBar from './components/Common/NavBar'
 
 Vue.config.productionTip = false
 
@@ -18,6 +19,7 @@ Vue.use(Cube)
 
 
 Vue.component('title-pannel', TitlePannel)
+Vue.component('nav-bar', NavBar)
 
 /* eslint-disable no-new */
 new Vue({

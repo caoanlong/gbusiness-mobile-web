@@ -6,12 +6,12 @@
             </div>
             <div class="txt">联系商家</div>
         </div>
-        <div class="item my-order">
+        <router-link tag="div" class="item my-order" to="myorder">
             <div class="icon">
                 <svg-icon icon-class="order"></svg-icon>
             </div>
             <div class="txt">我的订单</div>
-        </div>
+        </router-link>
         <router-link tag="div" class="item add-alliance" to="createalliance">
             <div class="icon">
                 <svg-icon icon-class="add"></svg-icon>
