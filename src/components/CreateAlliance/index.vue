@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import MerchantMember from '../../api/MerchantMember'
 export default {
     data() {
         return {
@@ -79,6 +80,13 @@ export default {
         submitHandler(e) {
             e.preventDefault()
             console.log('submit', e)
+            // MerchantMember.add({
+            //     merchantMemberName: this.model.name,
+            //     mobile: this.model.mobile,
+            //     industry: this.model.industry
+            // }).then(res => {
+
+            // })
         },
         validateHandler(result) {
             this.validity = result.validity
