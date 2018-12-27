@@ -79,14 +79,17 @@ export default {
     methods: {
         submitHandler(e) {
             e.preventDefault()
-            console.log('submit', e)
-            // MerchantMember.add({
-            //     merchantMemberName: this.model.name,
-            //     mobile: this.model.mobile,
-            //     industry: this.model.industry
-            // }).then(res => {
-
-            // })
+            MerchantMember.add({
+                merchantMemberName: this.model.name,
+                mobile: this.model.mobile,
+                industry: this.model.industry
+            }).then(res => {
+                this.$createToast({
+                    txt: res.data.msg,
+                    type: 'correct'
+                }).show()
+                this.$router.push({name: 'home'})
+            })
         },
         validateHandler(result) {
             this.validity = result.validity

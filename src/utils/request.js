@@ -29,17 +29,26 @@ service.interceptors.response.use(
 				|| response.data.code == 105
 				|| response.data.code == 106 ) {
 				localStorage.clear()
-				Toast.$create(response.data.msg)
+				Toast.$create({
+					txt: response.data.msg,
+        			type: 'error'
+				})
 				window.location.href = '/#/login'
 				return Promise.reject('error')
 			}
-			Message.error(response.data.msg)
+			Toast.$create({
+				txt: response.data.msg,
+				type: 'error'
+			})
 			return Promise.reject('error')
 		}
 		return response
 	},
 	error => {
-		Message.error(error.message.toString())
+		Toast.$create({
+			txt: error.message.toString(),
+			type: 'error'
+		})
 		return Promise.reject(error)
 	})
 
