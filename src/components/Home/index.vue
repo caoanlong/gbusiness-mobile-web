@@ -1,9 +1,9 @@
 <template>
     <div class="container">
-        <promotions-main></promotions-main>
+        <promotions-main :info="info"></promotions-main>
         <buy-record></buy-record>
-        <promotions-info></promotions-info>
-        <buy-notes></buy-notes>
+        <promotions-info :list="info.merchants"></promotions-info>
+        <buy-notes :notes="info.notes" :introduction="info.introduction"></buy-notes>
         <buy-record-info></buy-record-info>
         <add-promotion-flash-button></add-promotion-flash-button>
         <bottom-action></bottom-action>
@@ -20,6 +20,7 @@ import BuyRecordInfo from './components/BuyRecordInfo'
 import AddPromotionFlashButton from './components/AddPromotionFlashButton'
 import BottomAction from './components/BottomAction'
 import RightTools from './components/RightTools'
+import Activity from '../../api/Activity'
 export default {
     components: { 
         PromotionsMain, 
@@ -30,7 +31,24 @@ export default {
         AddPromotionFlashButton,
         BottomAction,
         RightTools
-    }
+    },
+    data() {
+        return {
+            info: {}
+        }
+    },
+    created() {
+        this.getInfo()
+    },
+    methods: {
+        getInfo() {
+            const activityId = 9
+            Activity.findDetail({ activityId }).then(res => {
+                console.log(res)
+                this.info = res
+            })
+        }
+    },
 }
 </script>
 

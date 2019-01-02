@@ -1,11 +1,11 @@
 <template>
     <div class="wrapper">
-        <img class="product-img" src="../../../../assets/imgs/main-img.jpg" alt="">
+        <img class="product-img" :src="IMGURL + info.banner" alt="" v-if="info.banner">
         <div class="product-info">
-            <div class="product-info-title">【疯抢中...】龙华区XX联盟千人狂抢，不超值，拿锤砸！！！</div>
+            <div class="product-info-title">{{info.name}}</div>
             <div class="product-control">
-                <div class="product-time">截止：2018-12-10 08:30</div>
-                <div class="product-price">￥29.99</div>
+                <div class="product-time">截止：{{info.endTime | transDate('YYYY-MM-DD HH:mm:ss')}}</div>
+                <div class="product-price">￥{{info.price}}</div>
                 <div class="product-buy">
                     <div class="product-buy-btn">抢购</div>
                 </div>
@@ -16,7 +16,9 @@
 
 <script>
 export default {
-    
+    props: {
+        info: Object
+    }
 }
 </script>
 
