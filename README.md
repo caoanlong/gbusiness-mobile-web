@@ -1,6 +1,6 @@
-# edu-web-frontend-h5
+# gbusiness-mobile-web
 
-> A Vue.js project
+> Gbusiness project with Vue.js
 
 ## Build Setup
 
