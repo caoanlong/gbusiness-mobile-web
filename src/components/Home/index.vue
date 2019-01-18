@@ -38,13 +38,12 @@ export default {
         }
     },
     created() {
-        this.getInfo()
+        const activityId = this.$route.query.activityId
+        this.getInfo(activityId)
     },
     methods: {
-        getInfo() {
-            const activityId = 9
+        getInfo(activityId) {
             Activity.findDetail({ activityId }).then(res => {
-                console.log(res)
                 this.info = res
             })
         }
