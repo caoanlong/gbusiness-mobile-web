@@ -4,6 +4,7 @@ import Vue from 'vue'
 import Cube from 'cube-ui'
 import App from './App'
 import router from './router'
+import store from './store'
 
 import './assets/css/reset.css'
 // icons
@@ -35,6 +36,7 @@ Object.keys(filters).forEach(key => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
